@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <!-- <style>
+        .card{
+            height: 250px;
+            width: 200px;
+            background-color: lightcoral;
+        }
+    </style> -->
+</head>
+<body style="background-color: #121212; color:#fff;">
+    <div id="card">
+        <!--  -->
+    </div>    
+</body>
+<script>
+    let follower
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+    const xhr = new XMLHttpRequest();
+    xhr.open('Get', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const rawdata = this.responseText
+            const objData = JSON.parse(this.responseText)
+            // console.log(typeof data);
+            // console.log(rawdata);
+            // console.log(objData);
+
+            const image = objData.avatar_url
+             follower = objData.followers
+            // console.log(image);
+            console.log(follower);
+            
+        }
+    }
+    xhr.send();
+
+    const followerCon = follower
+    const buttonCon = document.getElementById('card');
+
+    const button = document.createElement('button');
+    button.innerText = "Start"
+    // console.log(button);
+    button.addEventListener('click', function(){
+        console.log("Click");
+        buttonCon.appendChild(image)
+        followerCon.appendChild(follower)
+    })
+
+    buttonCon.appendChild(button)
+
+    const image = document.createElement('img');
+    image.src = "https://avatars.githubusercontent.com/u/11613311?v=4";
+    image.style.width = "100px"
+
+
+
+</script>
+</html>

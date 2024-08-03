@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event | three</title>
+</head>
+<body style="background-color: #121212; color: white;">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // const sayDate = function(str){
+    //     console.log(str,Date.now);
+    // }
+
+    // const intervelId = setInterval(sayDate,1000,"hi")
+
+    // clearInterval(intervelId)
+
+    let cancel;
+
+    const createIntervel = function(){
+            console.log("Error!");
+    }
+
+    const start = document.getElementById('start')
+    // console.log(start);
+
+    const stoped = document.getElementById('stop')
+    // console.log(stop);
+
+    start.addEventListener('click',function(){
+        // console.log("Start click");
+        cancel = setInterval(createIntervel,1000)
+    })
+
+    stoped.addEventListener('click',function(){
+        clearInterval(cancel)
+    })
+
+</script>
+</html>
